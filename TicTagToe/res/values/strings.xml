@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, TicTagToeActivity!</string>
+    <string name="app_name">TicTagToe</string>
+    <string name="gameName">Tic Tag Toe</string>
+    <string name="singlePlayerButton">Play Against Computer</string>
+    <string name="multiPlayerButton">Play Against Human</string>
+
+</resources>
