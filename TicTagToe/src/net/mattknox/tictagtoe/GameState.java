@@ -38,8 +38,7 @@ int winner;
 		    //2 diagonals
 		    	compareSquares(squares[0], squares[4], squares[8]);
 		    	compareSquares(squares[2], squares[4], squares[6]);
-
-	    	
+		    if (winner == 0) winner = checkFull();
 	    } //end checkForWinner
 		
 		private void compareSquares(Square square1, Square square2, Square square3) {
@@ -55,11 +54,23 @@ int winner;
 	    	} //end if
 	    } //end compareSquares
 		
-		public String getMoveString(int location) {
+		private int checkFull() {
+			int i = 0;
+			int filled = 0;
+			while (i <= 8 && filled == 0) {
+				int x = squares[i].getMove();
+				if (x == 0) filled = -1;
+				else if (i == 8) return 10;
+				i++;
+			} //end for
+			return 0;
+		}
+		
+		public int getMoveString(int location) {
 			int move = squares[location].getMove();
-			String moveString = "";
-			if (move == 1) moveString = "X";
-			else if (move == 2) moveString = "O";
+			int moveString = 0;
+			if (move == 1) moveString = 1;
+			else if (move == 2) moveString = 2; 
 			return moveString;
 			
 		}
@@ -75,11 +86,9 @@ int winner;
 	
 	public class Square {
 	
-		boolean containsMove;
 		int xOrO;
 		
 		public Square() {
-			containsMove = false;
 			xOrO = 0;
 		} //end Constructor
 		

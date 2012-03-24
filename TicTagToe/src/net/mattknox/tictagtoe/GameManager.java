@@ -17,7 +17,7 @@ public class GameManager {
 		playerTurn = 1;
 	}
 	
-	public String getMove(int locationArg) {
+	public int getMove(int locationArg) {
 		return game.getMoveString(locationArg);
 	}
 	
