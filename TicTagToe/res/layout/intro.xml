@@ -20,26 +20,30 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal" android:layout_marginBottom="20dp">
+        android:layout_weight=".2"
+        android:orientation="vertical" android:gravity="center_horizontal">
 
-        <Button
-            android:id="@+id/singlePlayerButton"
+        <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/singlePlayerButton"
-            android:textSize="20dp"
-            android:width="150dp" />
+            android:layout_weight=".2"
+            android:paddingRight="5dp"
+            android:text="@string/selectGameType" />
 
+        <Spinner
+            android:id="@+id/gameTypeSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <Button
-            android:id="@+id/multiPlayerButton"
+            android:id="@+id/startGameButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/multiPlayerButton"
-            android:textSize="20dp"
-            android:width="150dp" />
+            android:text="@string/startGameButton" />
 
     </LinearLayout>
 

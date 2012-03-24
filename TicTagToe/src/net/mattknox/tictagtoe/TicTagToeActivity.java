@@ -7,53 +7,56 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.media.AudioManager; //added for music
-import android.media.MediaPlayer;
+import android.widget.Spinner;
+
+
 public class TicTagToeActivity extends Activity {
     /** Called when the activity is first created. */
-	Button singlePlayerButton;
-	Button multiPlayerButton;
-	int gameType;
-	
-	MediaPlayer mediaPlayer;//n
+	Button startGameButton;
+	Spinner gameTypeSpinner;
+
+	int gameType; // 0=LocalVsAi ; 1=LocalVsLocal ; 2=LocalVsInternet
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro);
         
-        singlePlayerButton = (Button) findViewById(R.id.singlePlayerButton);
-        singlePlayerButton.setOnClickListener(clickSinglePlayerListener);
-        multiPlayerButton = (Button) findViewById(R.id.multiPlayerButton);
-        multiPlayerButton.setOnClickListener(clickMultiPlayerListener);
-        //allows volume keys to set game volume
-        setVolumeControlStream(AudioManager.STREAM_MUSIC); //added for music
+        gameType = 1; //Defaulting this to local player vs. local player
+        initDisplay(); //Initializes all of the widgets and what-not
         
-        mediaPlayer = MediaPlayer.create(this, R.raw.dynamite);
+        
+        
         
         
     }
     
-    OnClickListener clickSinglePlayerListener = new OnClickListener() {
-    	public void onClick(View v) {
-    		gameType = 1;
-    		
-    		startGame();
-    		
-    	} //end onClick
-    }; //end OnClickListener
+    private void initDisplay() {
+    	startGameButton = (Button) findViewById(R.id.startGameButton);
+        startGameButton.setOnClickListener(clickStartListener);
+        
+        gameTypeSpinner = (Spinner) findViewById(R.id.gameTypeSpinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this, R.array.gameTypes, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        gameTypeSpinner.setAdapter(adapter);
+    }
     
-    OnClickListener clickMultiPlayerListener = new OnClickListener() {
+    OnClickListener clickStartListener = new OnClickListener() {
     	public void onClick(View v) {
-    		gameType = 2;
+    		
+    		int selectedGameType = gameTypeSpinner.getSelectedItemPosition();
+    		if (selectedGameType != -1) gameType = selectedGameType;
+    		
     		startGame();
+    		
     	} //end onClick
     }; //end OnClickListener
     
     public void startGame() {
     	
-            mediaPlayer.start();
             
     	Intent intent = new Intent(TicTagToeActivity.this, GameBoard.class);
     	
@@ -62,11 +65,6 @@ public class TicTagToeActivity extends Activity {
 			startActivity(intent);
 			
     }
-    @Override
-    public void onDestroy()
-    {
-    	super.onDestroy();
-    	mediaPlayer.pause();
-    }
+
     
 }

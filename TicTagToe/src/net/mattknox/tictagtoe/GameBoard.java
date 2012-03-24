@@ -8,10 +8,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 
 public class GameBoard extends Activity {
 	
-	
+	MediaPlayer mediaPlayer;//n
 	GameManager manager;
 	ImageButton[] boardUI;
 	TextView viewWhichTurn;
@@ -44,7 +46,13 @@ public class GameBoard extends Activity {
 	    
 	    winner = 0;
 	    updateStatusMessage();
-	}
+	    
+        mediaPlayer = MediaPlayer.create(this, R.raw.dynamite);
+        mediaPlayer.start();
+        //allows volume keys to set game volume
+        setVolumeControlStream(AudioManager.STREAM_MUSIC); //added for music
+	    
+	} //end onCreate
 	
 	public void updateBoardUI() {
 		//for (int i = 0; i <= 8; i++) {
@@ -186,5 +194,16 @@ public class GameBoard extends Activity {
     	
     	
     }; //end OnClickListener
+    
+    public void onPause() {
+    	super.onPause();
+    	
+    	mediaPlayer.pause();
+    } //end onPause
+    
+    public void onResume() {
+    	super.onResume();
+    	mediaPlayer.start();
+    } //end onResume
 
 }

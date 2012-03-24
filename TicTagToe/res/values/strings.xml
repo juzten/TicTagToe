@@ -6,5 +6,11 @@
     <string name="gameName">Tic Tag Toe</string>
     <string name="singlePlayerButton">Play Against Computer</string>
     <string name="multiPlayerButton">Play Against Human</string>
+    <string name="startGameButton">Start Game</string>
+    <string name="selectGameType">Select a game type:</string>
+    <string-array name="gameTypes">
+        <item >Play Vs. Computer</item>
+        <item >Play Vs. Local Player</item>
+    </string-array>
 
 </resources>
