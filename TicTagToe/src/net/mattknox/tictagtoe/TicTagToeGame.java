@@ -1,6 +1,6 @@
 package net.mattknox.tictagtoe;
 
-public class GameState {
+public class TicTagToeGame {
 	
 final static int BOARD_SIZE = 9;
 
@@ -14,7 +14,7 @@ int winner;
 	//Location of square in array determines which square it represents in the display
 	Square[] squares;
 	
-		public GameState() {
+		public TicTagToeGame() {
 		
 			squares = new Square[BOARD_SIZE];
 			for (int i = 0; i < squares.length; i++) {

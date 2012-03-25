@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 
-public class GameBoard extends Activity {
+public class GameDisplayActivity extends Activity {
 	
 	MediaPlayer mediaPlayer;//n
 	GameManager manager;

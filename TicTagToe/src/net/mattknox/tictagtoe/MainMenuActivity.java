@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 
-public class TicTagToeActivity extends Activity {
+public class MainMenuActivity extends Activity {
     /** Called when the activity is first created. */
 	Button startGameButton;
 	Spinner gameTypeSpinner;
@@ -58,7 +58,7 @@ public class TicTagToeActivity extends Activity {
     public void startGame() {
     	
             
-    	Intent intent = new Intent(TicTagToeActivity.this, GameBoard.class);
+    	Intent intent = new Intent(MainMenuActivity.this, GameDisplayActivity.class);
     	
 
     	intent.putExtra("type", gameType);

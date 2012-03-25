@@ -22,7 +22,7 @@ public class AiPlayer extends GameManager {
         board = new int[3][3];
     }
     
-    public AiPlayer(GameState state) {
+    public AiPlayer(TicTagToeGame state) {
     	board = new int[3][3];
     	for(int i=0;i<3;i++)
             for(int j=0;j<3;j++)

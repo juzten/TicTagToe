@@ -3,7 +3,7 @@ package net.mattknox.tictagtoe;
 public class GameManager {
 	Player player1;
 	Player player2;
-	GameState game;
+	TicTagToeGame game;
 	int playerTurn;
 	
 	public GameManager() {
@@ -13,7 +13,7 @@ public class GameManager {
 	public void startGame() {
 		player1 = new Player("X");
 		player2 = new Player("O");
-		game = new GameState();
+		game = new TicTagToeGame();
 		playerTurn = 1;
 	}
 	
