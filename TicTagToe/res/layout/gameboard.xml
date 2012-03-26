@@ -2,8 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" android:paddingLeft="10dp" android:paddingRight="10dp" android:background="@drawable/backgrnd1">
-
+    android:background="@drawable/backgrnd1"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp" >
 
     <TextView
         android:id="@+id/textView1"
@@ -13,107 +15,116 @@
         android:text="@string/app_name"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-
     <FrameLayout
         android:id="@+id/frameLayout1"
         android:layout_width="300dp"
         android:layout_height="256dp"
         android:background="@drawable/gameboard" >
 
-
         <LinearLayout
             android:id="@+id/linearLayout1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" android:background="@drawable/transparent">
+            android:background="@drawable/transparent"
+            android:orientation="vertical" >
 
             <TableRow
                 android:id="@+id/gameRow0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="35dp" android:layout_weight="0">
+                android:layout_weight="0"
+                android:paddingLeft="35dp" >
 
                 <ImageButton
                     android:id="@+id/button0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
                     android:background="@drawable/transparent"
-                    android:src="@drawable/transparent" android:layout_marginRight="15dp"/>
+                    android:src="@drawable/transparent" />
 
                 <ImageButton
                     android:id="@+id/button1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
                     android:background="@drawable/transparent"
-                    android:src="@drawable/transparent" android:layout_marginRight="15dp"/>
+                    android:src="@drawable/transparent" />
 
                 <ImageButton
                     android:id="@+id/button2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
                     android:background="@drawable/transparent"
-                    android:src="@drawable/transparent" android:layout_marginRight="15dp"/>
+                    android:src="@drawable/transparent" />
             </TableRow>
 
             <TableRow
                 android:id="@+id/gameRow1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="25dp" android:layout_weight="1">
+                android:layout_weight="1"
+                android:paddingLeft="25dp" >
 
                 <ImageButton
                     android:id="@+id/button3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="22dp"
                     android:background="@drawable/transparent"
-                    android:src="@drawable/transparent" android:layout_marginRight="22dp"/>
+                    android:src="@drawable/transparent" />
 
                 <ImageButton
                     android:id="@+id/button4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="22dp"
                     android:background="@drawable/transparent"
-                    android:src="@drawable/transparent" android:layout_marginRight="22dp"/>
+                    android:src="@drawable/transparent" />
 
                 <ImageButton
                     android:id="@+id/button5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="22dp"
                     android:background="@drawable/transparent"
-                    android:src="@drawable/transparent" android:layout_marginRight="22dp"/>
+                    android:src="@drawable/transparent" />
             </TableRow>
 
             <TableRow
                 android:id="@+id/gameRow2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="15dp" android:layout_weight="2">
+                android:layout_weight="2"
+                android:paddingLeft="15dp" >
 
                 <ImageButton
                     android:id="@+id/button6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="32dp"
                     android:background="@drawable/transparent"
-                    android:src="@drawable/transparent" android:layout_marginRight="32dp"/>
+                    android:src="@drawable/transparent" />
 
                 <ImageButton
                     android:id="@+id/button7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="32dp"
                     android:background="@drawable/transparent"
-                    android:src="@drawable/transparent" android:layout_marginRight="32dp"/>
+                    android:src="@drawable/transparent" />
 
                 <ImageButton
                     android:id="@+id/button8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/transparent"
-                    android:src="@drawable/transparent"/>
+                    android:src="@drawable/transparent" />
             </TableRow>
         </LinearLayout>
-
     </FrameLayout>
-
+
     <ImageButton
         android:id="@+id/submitBtn"
         android:layout_width="128dp"
@@ -127,6 +138,9 @@
         android:id="@+id/viewWhichTurn"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:textAppearance="?android:attr/textAppearanceLarge" android:gravity="center" android:textStyle="italic" android:typeface="serif"/>
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="italic"
+        android:typeface="serif" />
 
 </LinearLayout>

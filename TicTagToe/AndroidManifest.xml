@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GameDisplayActivity"></activity>
+        <activity android:name=".GameDisplayActivity" >
+        </activity>
     </application>
 
 </manifest>
