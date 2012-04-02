@@ -1,12 +1,26 @@
 package net.mattknox.tictagtoe;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.MalformedURLException;
+
+import com.facebook.android.AsyncFacebookRunner;
+import com.facebook.android.DialogError;
+import com.facebook.android.Facebook;
+import com.facebook.android.Facebook.DialogListener;
+import com.facebook.android.FacebookError;
+
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 
@@ -20,6 +34,8 @@ public class GameDisplayActivity extends Activity {
 	int winner;
 	int lastBtnPress = -1;
 	int gameType;
+
+	Facebook mFacebook = new Facebook("239440319487634");
 
 	/** Called when the activity is first created. */
 	// @Override
@@ -145,6 +161,66 @@ public class GameDisplayActivity extends Activity {
 			viewWhichTurn.setText(message);
 			for (int i = 0; i < 9; i++) {
 				boardUI[i].setClickable(false);
+
+				// post on user's wall.
+
+				// Bundle parameters = new Bundle();
+				//
+				// parameters.putString("message", "this is a test");
+				// AsyncFacebookRunner mAsyncRunner = new AsyncFacebookRunner(
+				// mFacebook);
+				// mAsyncRunner.request("me/feed", parameters,
+				// new AsyncFacebookRunner.RequestListener() {
+				//
+				// public void onMalformedURLException(
+				// MalformedURLException e, Object state) {
+				// }
+				//
+				// public void onIOException(IOException e,
+				// Object state) {
+				// }
+				//
+				// public void onFileNotFoundException(
+				// FileNotFoundException e, Object state) {
+				// }
+				//
+				// public void onFacebookError(FacebookError e,
+				// Object state) {
+				// }
+				//
+				// public void onComplete(String response, Object state) {
+				// }
+				// });
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+				builder.setTitle("You Won!");
+
+				builder.setMessage("Would you like to post to facebook?");
+
+				builder.setCancelable(true);
+
+				builder.setPositiveButton("Yes",
+						new DialogInterface.OnClickListener() {
+
+							public void onClick(DialogInterface dialog,
+									int which) {
+
+								Intent getURL = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.facebook.com"));
+
+								startActivity(getURL);
+
+							}
+						});
+				builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+					
+					public void onClick(DialogInterface dialog, int which) {
+						finish();
+						
+					}
+				});
+
+				AlertDialog resetDialog = builder.create();
+				resetDialog.show();
 			} // end for
 		}
 	}

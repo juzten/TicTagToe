@@ -47,6 +47,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/startGameButton" />
+
+        <Button
+            android:id="@+id/facebookbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/facebook" />
+
+        <Button
+            android:id="@+id/facebooklogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/facebooklogout" />
+
     </LinearLayout>
 
 </LinearLayout>

@@ -8,6 +8,8 @@
     <string name="multiPlayerButton">Play Against Human</string>
     <string name="startGameButton">Start Game</string>
     <string name="selectGameType">Select a game type:</string>
+    <string name="facebook">Sign into Facebook</string>
+    <string name="facebooklogout">Logout of Facebook</string>
 
     <string-array name="gameTypes">
         <item>Play Vs. Local Player</item>
