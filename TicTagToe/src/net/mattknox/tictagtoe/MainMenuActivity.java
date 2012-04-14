@@ -65,7 +65,7 @@ public class MainMenuActivity extends Activity {
 		public void onClick(View v) {
 
 			// facebook single sign on
-			facebook.authorize(MainMenuActivity.this, new DialogListener() {
+			facebook.authorize(MainMenuActivity.this, new String[] {"publish_stream", "read_stream", "offline_access"}, new DialogListener() {
 				public void onComplete(Bundle values) {
 				}
 
