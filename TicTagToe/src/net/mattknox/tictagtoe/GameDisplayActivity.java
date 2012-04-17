@@ -18,6 +18,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,7 +35,7 @@ public class GameDisplayActivity extends Activity implements DialogListener {
 	int winner;
 	int lastBtnPress = -1;
 	int gameType;
-
+	int post = 0;
 	Facebook mFacebook = new Facebook("239440319487634");
 
 	/** Called when the activity is first created. */
@@ -159,15 +160,84 @@ public class GameDisplayActivity extends Activity implements DialogListener {
 			message += manager.getPlayerName(winner);
 			message += " won the game!";
 			viewWhichTurn.setText(message);
-			for (int i = 0; i < 9; i++) {
+			for (int i = 0; i < 1; i++) {
 				boardUI[i].setClickable(false);
 
-				// post on user's wall.
+				
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-				 Bundle parameters = new Bundle();
+				builder.setTitle("You Won!");
+
+				builder.setMessage("Would you like to post to facebook or twitter?");
+
+				builder.setCancelable(true);
+
+				builder.setPositiveButton("Yes",
+						new DialogInterface.OnClickListener() {
+
+							public void onClick(DialogInterface dialog,
+									int which) {
+								
+								setContentView(R.layout.share);
+								Button btnFacebook  = (Button) findViewById(R.id.btnFacebook);
+								Button btnTwitter  = (Button) findViewById(R.id.btnTwitter);
+								
+								// when facebook button is clicked
+								btnFacebook.setOnClickListener(new View.OnClickListener() {
+
+									
+									public void onClick(View v) {
+										// TODO Auto-generated method stub
+										// post on user's wall.
+										
+										
+									}
+								});//end btnfacebook
+								
+								// when twitter button is clicked
+								btnTwitter.setOnClickListener(new View.OnClickListener() {
+
+									
+									public void onClick(View v) {
+										// TODO Auto-generated method stub
+										
+										String stringToTweet = "I won a game of tic tac toe!!!" ;
+										Intent twitterIntent = new Intent(android.content.Intent.ACTION_SEND);
+										twitterIntent.setType("plain/text");
+										
+										twitterIntent.setAction("android.intent.action.SEND");
+										twitterIntent.setFlags(0x3000000);                  
+										twitterIntent.setType("text/plain");    
+										twitterIntent.setClassName("com.twitter.android", "com.twitter.android.PostActivity");
+										twitterIntent.putExtra(android.content.Intent.EXTRA_TEXT, stringToTweet);
+										startActivity(twitterIntent);
+										
+									}
+								});//end btnTwitter
+								
+							}
+						});
+				builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+					
+					public void onClick(DialogInterface dialog, int which) {
+						
+						finish();
+						
+					}
+				});
+
+				AlertDialog resetDialog = builder.create();
+				resetDialog.show();
+				
+				
+				
+				
+				Bundle parameters = new Bundle();
 				
 				 parameters.putString("message", "this is a test");
 				 mFacebook.dialog(this, "stream.publish", parameters, this);
+				
+				
 //				 AsyncFacebookRunner mAsyncRunner = new AsyncFacebookRunner(
 //				 mFacebook);
 //				 mAsyncRunner.request("me/feed", parameters,
@@ -225,6 +295,8 @@ public class GameDisplayActivity extends Activity implements DialogListener {
 			} // end for
 		}
 	}
+
+	
 
 	OnClickListener clickSubmitButtonListener = new OnClickListener() {
 		public void onClick(View v) {
@@ -321,4 +393,5 @@ public class GameDisplayActivity extends Activity implements DialogListener {
 	    	finish();
 	    }
 
+	    
 }
