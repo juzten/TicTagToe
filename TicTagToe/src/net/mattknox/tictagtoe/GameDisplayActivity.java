@@ -163,12 +163,12 @@ public class GameDisplayActivity extends Activity implements DialogListener {
 			for (int i = 0; i < 1; i++) {
 				boardUI[i].setClickable(false);
 
-				Button facebookButton = (Button) findViewById(R.id.fcbkBtn);
+				ImageButton facebookButton = (ImageButton) findViewById(R.id.fcbkBtn);
 				facebookButton.setClickable(true);
 				facebookButton.setVisibility(View.VISIBLE);
 				facebookButton.setOnClickListener(facebookListener);
 
-				Button twitterButton = (Button) findViewById(R.id.twitterBtn);
+				ImageButton twitterButton = (ImageButton) findViewById(R.id.twitterBtn);
 				twitterButton.setClickable(true);
 				twitterButton.setVisibility(View.VISIBLE);
 				twitterButton.setOnClickListener(twitterListener);

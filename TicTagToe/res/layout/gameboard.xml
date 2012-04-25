@@ -138,25 +138,28 @@
             android:background="@drawable/transparent"
             android:clickable="true"
             android:src="@drawable/menubutton" />
-
-        <Button
-            android:id="@+id/twitterBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="15dp"
-            android:text="Twitter" android:clickable="false" android:visibility="invisible"/>
-
-        <Button
+
+        <ImageButton
             android:id="@+id/fcbkBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="19dp"
-            android:clickable="true"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_toLeftOf="@+id/submitBtn"
+            android:background="@drawable/twitter"
+            android:clickable="false"
             android:text="Facebook"
             android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/twitterBtn"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/facebook"
+            android:clickable="false"
+            android:text="Twitter"
+            android:visibility="invisible" />
+
     </RelativeLayout>
 
     <TextView
