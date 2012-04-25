@@ -163,140 +163,180 @@ public class GameDisplayActivity extends Activity implements DialogListener {
 			for (int i = 0; i < 1; i++) {
 				boardUI[i].setClickable(false);
 
-				
-				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				Button facebookButton = (Button) findViewById(R.id.fcbkBtn);
+				facebookButton.setClickable(true);
+				facebookButton.setVisibility(View.VISIBLE);
+				facebookButton.setOnClickListener(facebookListener);
 
-				builder.setTitle("You Won!");
+				Button twitterButton = (Button) findViewById(R.id.twitterBtn);
+				twitterButton.setClickable(true);
+				twitterButton.setVisibility(View.VISIBLE);
+				twitterButton.setOnClickListener(twitterListener);
+				//
+				// AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				//
+				// builder.setTitle("You Won!");
+				//
+				// builder.setMessage("Would you like to post to facebook or twitter?");
+				//
+				// builder.setCancelable(true);
+				//
+				// builder.setPositiveButton("Yes",
+				// new DialogInterface.OnClickListener() {
+				//
+				// public void onClick(DialogInterface dialog,
+				// int which) {
+				//
+				// setContentView(R.layout.share);
+				// Button btnFacebook = (Button) findViewById(R.id.btnFacebook);
+				// Button btnTwitter = (Button) findViewById(R.id.btnTwitter);
+				//
+				// // when facebook button is clicked
+				// btnFacebook.setOnClickListener(new View.OnClickListener() {
+				//
+				//
+				// public void onClick(View v) {
+				// // TODO Auto-generated method stub
+				// // post on user's wall.
+				//
+				//
+				// }
+				// });//end btnfacebook
+				//
+				// // when twitter button is clicked
+				// btnTwitter.setOnClickListener(new View.OnClickListener() {
+				//
+				//
+				// public void onClick(View v) {
+				// // TODO Auto-generated method stub
+				//
+				// String stringToTweet = "I won a game of tic tac toe!!!" ;
+				// Intent twitterIntent = new
+				// Intent(android.content.Intent.ACTION_SEND);
+				// twitterIntent.setType("plain/text");
+				//
+				// twitterIntent.setAction("android.intent.action.SEND");
+				// twitterIntent.setFlags(0x3000000);
+				// twitterIntent.setType("text/plain");
+				// twitterIntent.setClassName("com.twitter.android",
+				// "com.twitter.android.PostActivity");
+				// twitterIntent.putExtra(android.content.Intent.EXTRA_TEXT,
+				// stringToTweet);
+				// startActivity(twitterIntent);
+				//
+				// }
+				// });//end btnTwitter
+				//
+				// }
+				// });
+				// builder.setNegativeButton("No", new
+				// DialogInterface.OnClickListener() {
+				//
+				// public void onClick(DialogInterface dialog, int which) {
+				//
+				// finish();
+				//
+				// }
+				// });
+				//
+				// AlertDialog resetDialog = builder.create();
+				// resetDialog.show();
+				//
+				//
+				//
+				//
+				// Bundle parameters = new Bundle();
+				//
+				// parameters.putString("message", "this is a test");
+				// mFacebook.dialog(this, "stream.publish", parameters, this);
+				//
 
-				builder.setMessage("Would you like to post to facebook or twitter?");
-
-				builder.setCancelable(true);
-
-				builder.setPositiveButton("Yes",
-						new DialogInterface.OnClickListener() {
-
-							public void onClick(DialogInterface dialog,
-									int which) {
-								
-								setContentView(R.layout.share);
-								Button btnFacebook  = (Button) findViewById(R.id.btnFacebook);
-								Button btnTwitter  = (Button) findViewById(R.id.btnTwitter);
-								
-								// when facebook button is clicked
-								btnFacebook.setOnClickListener(new View.OnClickListener() {
-
-									
-									public void onClick(View v) {
-										// TODO Auto-generated method stub
-										// post on user's wall.
-										
-										
-									}
-								});//end btnfacebook
-								
-								// when twitter button is clicked
-								btnTwitter.setOnClickListener(new View.OnClickListener() {
-
-									
-									public void onClick(View v) {
-										// TODO Auto-generated method stub
-										
-										String stringToTweet = "I won a game of tic tac toe!!!" ;
-										Intent twitterIntent = new Intent(android.content.Intent.ACTION_SEND);
-										twitterIntent.setType("plain/text");
-										
-										twitterIntent.setAction("android.intent.action.SEND");
-										twitterIntent.setFlags(0x3000000);                  
-										twitterIntent.setType("text/plain");    
-										twitterIntent.setClassName("com.twitter.android", "com.twitter.android.PostActivity");
-										twitterIntent.putExtra(android.content.Intent.EXTRA_TEXT, stringToTweet);
-										startActivity(twitterIntent);
-										
-									}
-								});//end btnTwitter
-								
-							}
-						});
-				builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-					
-					public void onClick(DialogInterface dialog, int which) {
-						
-						finish();
-						
-					}
-				});
-
-				AlertDialog resetDialog = builder.create();
-				resetDialog.show();
-				
-				
-				
-				
-				Bundle parameters = new Bundle();
-				
-				 parameters.putString("message", "this is a test");
-				 mFacebook.dialog(this, "stream.publish", parameters, this);
-				
-				
-//				 AsyncFacebookRunner mAsyncRunner = new AsyncFacebookRunner(
-//				 mFacebook);
-//				 mAsyncRunner.request("me/feed", parameters,
-//				 new AsyncFacebookRunner.RequestListener() {
-//				
-//				 public void onMalformedURLException(
-//				 MalformedURLException e, Object state) {
-//				 }
-//				
-//				 public void onIOException(IOException e,
-//				 Object state) {
-//				 }
-//				
-//				 public void onFileNotFoundException(
-//				 FileNotFoundException e, Object state) {
-//				 }
-//				
-//				 public void onFacebookError(FacebookError e,
-//				 Object state) {
-//				 }
-//				
-//				 public void onComplete(String response, Object state) {
-//				 }
-//				 });
-//				AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//
-//				builder.setTitle("You Won!");
-//
-//				builder.setMessage("Would you like to post to facebook?");
-//
-//				builder.setCancelable(true);
-//
-//				builder.setPositiveButton("Yes",
-//						new DialogInterface.OnClickListener() {
-//
-//							public void onClick(DialogInterface dialog,
-//									int which) {
-//
-//								Intent getURL = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.facebook.com"));
-//
-//								startActivity(getURL);
-//
-//							}
-//						});
-//				builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-//					
-//					public void onClick(DialogInterface dialog, int which) {
-//						finish();
-//						
-//					}
-//				});
-//
-//				AlertDialog resetDialog = builder.create();
-//				resetDialog.show();
+				// AsyncFacebookRunner mAsyncRunner = new AsyncFacebookRunner(
+				// mFacebook);
+				// mAsyncRunner.request("me/feed", parameters,
+				// new AsyncFacebookRunner.RequestListener() {
+				//
+				// public void onMalformedURLException(
+				// MalformedURLException e, Object state) {
+				// }
+				//
+				// public void onIOException(IOException e,
+				// Object state) {
+				// }
+				//
+				// public void onFileNotFoundException(
+				// FileNotFoundException e, Object state) {
+				// }
+				//
+				// public void onFacebookError(FacebookError e,
+				// Object state) {
+				// }
+				//
+				// public void onComplete(String response, Object state) {
+				// }
+				// });
+				// AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				//
+				// builder.setTitle("You Won!");
+				//
+				// builder.setMessage("Would you like to post to facebook?");
+				//
+				// builder.setCancelable(true);
+				//
+				// builder.setPositiveButton("Yes",
+				// new DialogInterface.OnClickListener() {
+				//
+				// public void onClick(DialogInterface dialog,
+				// int which) {
+				//
+				// Intent getURL = new Intent(Intent.ACTION_VIEW,
+				// Uri.parse("http://www.facebook.com"));
+				//
+				// startActivity(getURL);
+				//
+				// }
+				// });
+				// builder.setNegativeButton("No", new
+				// DialogInterface.OnClickListener() {
+				//
+				// public void onClick(DialogInterface dialog, int which) {
+				// finish();
+				//
+				// }
+				// });
+				//
+				// AlertDialog resetDialog = builder.create();
+				// resetDialog.show();
 			} // end for
 		}
 	}
 
-	
+	OnClickListener twitterListener = new OnClickListener() {
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+
+			String stringToTweet = "I won a game of tic tac toe!!!";
+			Intent twitterIntent = new Intent(
+					android.content.Intent.ACTION_SEND);
+			twitterIntent.setType("plain/text");
+
+			twitterIntent.setAction("android.intent.action.SEND");
+			twitterIntent.setFlags(0x3000000);
+			twitterIntent.setType("text/plain");
+			twitterIntent.setClassName("com.twitter.android",
+					"com.twitter.android.PostActivity");
+			twitterIntent.putExtra(android.content.Intent.EXTRA_TEXT,
+					stringToTweet);
+			startActivity(twitterIntent);
+		}
+	};
+	OnClickListener facebookListener = new OnClickListener() {
+		public void onClick(View v) {
+			Intent i = new Intent(GameDisplayActivity.this,
+					FacebookActivity.class);
+			startActivity(i);
+		}
+	};
 
 	OnClickListener clickSubmitButtonListener = new OnClickListener() {
 		public void onClick(View v) {
@@ -350,48 +390,46 @@ public class GameDisplayActivity extends Activity implements DialogListener {
 	} // end onResume
 
 	public void onComplete(Bundle values) {
-		  if (values.isEmpty())
-	        {
-	            //"skip" clicked ?
-	            return;
-	        }
+		if (values.isEmpty()) {
+			// "skip" clicked ?
+			return;
+		}
 
-	        // if facebookClient.authorize(...) was successful, this runs
-	        // this also runs after successful post
-	        // after posting, "post_id" is added to the values bundle
-	        // I use that to differentiate between a call from
-	        // faceBook.authorize(...) and a call from a successful post
-	        // is there a better way of doing this?
-	        if (!values.containsKey("239440319487634"))
-	        {
-	            try
-	            {
-	                Bundle parameters = new Bundle();
-	                parameters.putString("message", "this is a test");// the message to post to the wall
-	                mFacebook.dialog(this, "stream.publish", parameters, this);// "stream.publish" is an API call
-	            }
-	            catch (Exception e)
-	            {
-	                // TODO: handle exception
-	                System.out.println(e.getMessage());
-	            }
-	        }
-	    }
+		// if facebookClient.authorize(...) was successful, this runs
+		// this also runs after successful post
+		// after posting, "post_id" is added to the values bundle
+		// I use that to differentiate between a call from
+		// faceBook.authorize(...) and a call from a successful post
+		// is there a better way of doing this?
+		if (!values.containsKey("239440319487634")) {
+			try {
+				Bundle parameters = new Bundle();
+				parameters.putString("message", "this is a test");// the message
+																	// to post
+																	// to the
+																	// wall
+				mFacebook.dialog(this, "stream.publish", parameters, this);// "stream.publish"
+																			// is
+																			// an
+																			// API
+																			// call
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println(e.getMessage());
+			}
+		}
+	}
 
-	    public void onError(DialogError e)
-	    {
-	        System.out.println("Error: " + e.getMessage());
-	    }
+	public void onError(DialogError e) {
+		System.out.println("Error: " + e.getMessage());
+	}
 
-	    public void onFacebookError(FacebookError e)
-	    {
-	        System.out.println("Error: " + e.getMessage());
-	    }
+	public void onFacebookError(FacebookError e) {
+		System.out.println("Error: " + e.getMessage());
+	}
 
-	    public void onCancel()
-	    {
-	    	finish();
-	    }
+	public void onCancel() {
+		finish();
+	}
 
-	    
 }

@@ -124,15 +124,40 @@
             </TableRow>
         </LinearLayout>
     </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
-    <ImageButton
-        android:id="@+id/submitBtn"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/transparent"
-        android:clickable="true"
-        android:src="@drawable/menubutton" />
+        <ImageButton
+            android:id="@+id/submitBtn"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/transparent"
+            android:clickable="true"
+            android:src="@drawable/menubutton" />
+
+        <Button
+            android:id="@+id/twitterBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:text="Twitter" android:clickable="false" android:visibility="invisible"/>
+
+        <Button
+            android:id="@+id/fcbkBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="19dp"
+            android:clickable="true"
+            android:text="Facebook"
+            android:visibility="invisible" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/viewWhichTurn"
